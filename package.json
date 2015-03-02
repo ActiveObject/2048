@@ -1,0 +1,35 @@
+{
+  "name": "2048",
+  "version": "1.0.0",
+  "description": "2048 game",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "npm run build && http-server _public",
+    "dev": "npm run clean && npm run copy:assets && webpack-dev-server --progress --colors --port=5004 --content-base=_public --debug --devtool eval-source-map --output-pathinfo --inline",
+    "build": "npm run clean && npm run copy:assets && npm run build:js",
+    "build:js": "webpack",
+    "copy:assets": "cp -R src/assets _public",
+    "clean": "rm -rf _public"
+  },
+  "author": "Vasyl Pryimachuk <activeobject.ac@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^4.6.3",
+    "babel-loader": "^4.0.0",
+    "css-loader": "^0.9.1",
+    "expose-loader": "^0.6.0",
+    "http-server": "^0.7.5",
+    "jest": "^0.1.37",
+    "style-loader": "^0.8.3",
+    "webpack": "^1.6.0",
+    "webpack-dev-server": "^1.7.0"
+  },
+  "dependencies": {
+    "baconjs": "^0.7.52",
+    "debug": "^2.1.1",
+    "immutable": "^3.6.2",
+    "react": "^0.13.0-rc1",
+    "underscore": "^1.8.2"
+  }
+}
