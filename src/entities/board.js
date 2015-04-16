@@ -1,7 +1,4 @@
-import Atom from 'app/core/atom'
-import vbus from 'app/core/vbus'
+import vbus from 'app/vbus'
 import Board from 'app/board'
 
-let board = new Atom(Board.empty)
-vbus.onValue(v => Atom.swap(board, v))
-export default board
+export default vbus.scan(Board.empty, (board, nextValue) => nextValue)
